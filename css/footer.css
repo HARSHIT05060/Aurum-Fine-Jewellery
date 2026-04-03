@@ -1,0 +1,119 @@
+/* ═══════════════════════════════════════════════
+   AURUM — FOOTER CSS
+   JET BLACK — anchors the rhythm
+═══════════════════════════════════════════════ */
+
+.footer {
+  background: #0A0806;
+  color: var(--text-mist);
+  padding: 80px 60px 0;
+  position: relative; overflow: hidden;
+}
+.footer::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-deep), transparent);
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px; margin-bottom: 80px; padding-bottom: 60px;
+  border-bottom: 1px solid rgba(250,248,244,0.06);
+}
+
+.footer__logo {
+  font: 300 italic 36px/1 var(--font-display);
+  color: var(--text-white); text-decoration: none;
+  display: block; margin-bottom: 16px;
+}
+.footer__tagline {
+  font: 300 italic 15px/1.9 var(--font-display);
+  color: var(--text-fog); max-width: 260px;
+}
+.footer__social {
+  display: flex; gap: 16px; margin-top: 24px;
+}
+.footer__social-link {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid rgba(250,248,244,0.12);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-fog); text-decoration: none; font-size: 11px;
+  font-weight: 600; letter-spacing: 0.02em;
+  transition: all 0.3s;
+}
+.footer__social-link:hover {
+  border-color: var(--gold-mid); color: var(--gold-mid);
+}
+
+.footer__col h5 {
+  font: 600 10px/1 var(--font-body);
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold-mid); margin-bottom: 28px;
+}
+.footer__col a {
+  display: block; font: 300 13px/1 var(--font-body);
+  color: var(--text-fog); text-decoration: none;
+  margin-bottom: 14px; transition: color 0.25s;
+}
+.footer__col a:hover { color: var(--text-white); }
+
+/* Payment badges */
+.footer__payment { display: flex; gap: 8px; flex-wrap: wrap; }
+.footer__pay-badge {
+  background: rgba(250,248,244,0.08); color: var(--text-fog);
+  font: 600 9px/1 var(--font-body); letter-spacing: 0.06em;
+  padding: 6px 10px; border-radius: 2px;
+  border: 1px solid rgba(250,248,244,0.08);
+}
+
+/* Giant decorative wordmark */
+.footer__wordmark {
+  font: 300 italic clamp(80px,17vw,320px)/0.82 var(--font-display);
+  letter-spacing: -0.04em; text-align: center;
+  white-space: nowrap;
+  color: rgba(250,248,244,0.04);
+  pointer-events: none; user-select: none;
+  margin-bottom: -2.5%;
+}
+
+/* Bottom bar */
+.footer__bottom {
+  border-top: 1px solid rgba(250,248,244,0.06);
+  padding: 24px 0;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer__legal {
+  font: 300 11px/1 var(--font-body);
+  color: var(--text-fog); letter-spacing: 0.05em;
+}
+
+/* Floating chat button */
+.chat-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 900;
+  background: var(--gold-gradient); color: var(--dark-void); border: none;
+  padding: 14px 24px; border-radius: 40px;
+  font: 600 11px/1 var(--font-body);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  cursor: pointer; display: flex; align-items: center; gap: 8px;
+  box-shadow: 0 8px 32px rgba(201,151,58,0.45);
+  transition: all 0.3s;
+}
+.chat-float:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 48px rgba(201,151,58,0.55);
+}
+
+@media (max-width: 1024px) {
+  .footer__top { grid-template-columns: 1fr 1fr; gap: 48px; }
+}
+@media (max-width: 768px) {
+  .footer { padding: 60px 24px 0; }
+  .footer__top { grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+  .footer__wordmark { font-size: 24vw; }
+  .footer__bottom { flex-direction: column; text-align: center; }
+}
+@media (max-width: 480px) {
+  .footer__top { grid-template-columns: 1fr; }
+}

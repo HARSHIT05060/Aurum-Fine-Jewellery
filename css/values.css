@@ -1,0 +1,65 @@
+/* ═══════════════════════════════════════════════
+   AURUM — VALUES CSS
+   LIGHT CREAM section — trust pillars
+═══════════════════════════════════════════════ */
+
+.values {
+  background: var(--light-cream);
+  padding: 100px 0;
+  position: relative;
+}
+.values::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,151,58,0.3), transparent);
+}
+
+.values__header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.values__headline {
+  font: 300 italic clamp(36px, 4vw, 56px)/1.1 var(--font-display);
+  color: var(--text-dark); margin-bottom: 16px;
+}
+.values__subtext {
+  font: 300 16px/1.8 var(--font-body);
+  color: var(--text-medium);
+  max-width: 520px; margin: 0 auto;
+}
+
+/* 4-column grid */
+.values__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.values__item {
+  padding: 48px 40px; text-align: center;
+  border-right: 1px solid rgba(139,101,9,0.12);
+  position: relative; transition: background 0.3s;
+}
+.values__item:last-child { border-right: none; }
+.values__item:hover { background: rgba(201,151,58,0.04); }
+
+.values__icon {
+  font-size: 32px; margin-bottom: 20px; display: block;
+  color: var(--gold-deep);
+}
+.values__title {
+  font: 400 italic 20px/1.2 var(--font-display);
+  color: var(--text-dark); margin-bottom: 12px;
+}
+.values__text {
+  font: 300 14px/1.8 var(--font-body);
+  color: var(--text-soft);
+}
+
+@media (max-width: 1024px) {
+  .values__grid { grid-template-columns: repeat(2, 1fr); }
+  .values__item { border-bottom: 1px solid rgba(139,101,9,0.12); }
+}
+@media (max-width: 640px) {
+  .values__grid { grid-template-columns: 1fr; }
+  .values__item { border-right: none; border-bottom: 1px solid rgba(139,101,9,0.12); }
+}

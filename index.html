@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurum — Fine Jewellery, Crafted Forever</title>
+  <meta name="description" content="Aurum. Exquisite fine jewellery — diamonds, sapphires, emeralds set in 18k gold. Ethically sourced, masterfully crafted in India.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/marquee.css">
+  <link rel="stylesheet" href="css/values.css">
+  <link rel="stylesheet" href="css/story.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/testimonials.css">
+  <link rel="stylesheet" href="css/blog-teaser.css">
+  <link rel="stylesheet" href="css/newsletter.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <!-- Lenis -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+
+  <!-- Shopify Web Components -->
+  <script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
+
+  <!-- App scripts -->
+  <script type="module" src="js/carousel.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════
+     SHOPIFY STORE WRAPPER
+════════════════════════════════════════════════════ -->
+<shopify-store
+  store-domain="9u06ub-b4.myshopify.com"
+  public-access-token="66b528c90f3742203a41ef49b5b354d6"
+  country="IN"
+  language="EN"
+>
+
+<!-- ══════════════════════════════════════════════════
+     [1] NAVIGATION
+════════════════════════════════════════════════════ -->
+<nav class="nav" id="main-nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      Aur<span class="logo-accent">u</span>m
+    </a>
+    <div class="nav__links">
+      <a href="index.html"       class="nav__link active">Home</a>
+      <a href="collections.html" class="nav__link">Collections</a>
+      <a href="blog.html"        class="nav__link">Journal</a>
+    </div>
+    <div class="nav__actions">
+      <!-- Search -->
+      <button class="nav__icon-btn" aria-label="Search" id="search-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+      <!-- Wishlist -->
+      <button class="nav__icon-btn" aria-label="Wishlist" id="wishlist-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+      </button>
+      <!-- Cart -->
+      <button class="nav__icon-btn" id="cart-btn" onclick="document.getElementById('main-cart').showModal()" aria-label="Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      </button>
+      <a href="collections.html" class="nav__cta">Shop Now</a>
+      <!-- Mobile hamburger -->
+      <button class="nav__hamburger" aria-label="Menu" id="mobile-menu-btn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════
+     [2] HERO — DARK CINEMATIC VIDEO CAROUSEL
+     3 slides using local /videos/ assets
+     Fallback bg images from /images/ folder
+════════════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+
+  <!-- SLIDE 1 — Diamond Ring -->
+  <div class="hero__slide active" data-slide="0">
+    <div class="hero__slide-bg" style="background-image:url('images/hero-diamond-solitaire-ring.jpg.png');"></div>
+    <video class="hero__video" autoplay loop muted playsinline>
+      <source src="videos/diamond-ring-showcase.mp4" type="video/mp4">
+    </video>
+    <div class="hero__vignette-bottom"></div>
+    <div class="hero__vignette-left"></div>
+    <div class="hero__content">
+      <div class="hero__top-left">
+        <span class="section-label section-label--dark">Signature Collection · 2025</span>
+        <h1 class="hero__headline">Diamond<br>Eternelle</h1>
+        <p class="hero__tagline">Where light becomes<br>forever.</p>
+      </div>
+      <div class="hero__bottom-right">
+        <p class="hero__description">Ethically sourced diamonds set in hallmarked 18k gold. Made to be worn every day.</p>
+        <div>
+          <span class="hero__price-amount">₹1,45,000</span>
+          <span class="hero__price-unit">per piece · 18k Gold · GIA Certified</span>
+        </div>
+        <button class="btn-primary-dark" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+          Explore Collection
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 — Rose Gold Necklace -->
+  <div class="hero__slide" data-slide="1">
+    <div class="hero__slide-bg" style="background-image:url('images/hero-rose-gold-pearl-necklace.jpeg');"></div>
+    <video class="hero__video" loop muted playsinline>
+      <source src="videos/rose-gold-necklace-showcase.mp4" type="video/mp4">
+    </video>
+    <div class="hero__vignette-bottom"></div>
+    <div class="hero__vignette-left"></div>
+    <div class="hero__content">
+      <div class="hero__top-left">
+        <span class="section-label section-label--dark">Precious Collection</span>
+        <h1 class="hero__headline">Sapphire<br>Lumière</h1>
+        <p class="hero__tagline">The ocean's depth,<br>worn close to you.</p>
+      </div>
+      <div class="hero__bottom-right">
+        <div>
+          <span class="hero__price-amount">₹89,000</span>
+          <span class="hero__price-unit">per piece</span>
+        </div>
+        <button class="btn-primary-dark" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+          Discover Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3 — Emerald Earrings -->
+  <div class="hero__slide" data-slide="2">
+    <div class="hero__slide-bg" style="background-image:url('images/hero-emerald-drop-earrings.jpeg');"></div>
+    <video class="hero__video" loop muted playsinline>
+      <source src="videos/emerald-earrings-showcase.mp4" type="video/mp4">
+    </video>
+    <div class="hero__vignette-bottom"></div>
+    <div class="hero__vignette-left"></div>
+    <div class="hero__content">
+      <div class="hero__top-left">
+        <span class="section-label section-label--dark">Limited Edition · 2025</span>
+        <h1 class="hero__headline">Emerald<br>Séduction</h1>
+        <p class="hero__tagline">Nature's rarest green,<br>masterfully set.</p>
+      </div>
+      <div class="hero__bottom-right">
+        <div>
+          <span class="hero__price-amount">₹1,12,000</span>
+          <span class="hero__price-unit">per pair</span>
+        </div>
+        <button class="btn-primary-dark" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+          Shop Now
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <button class="hero__arrow hero__arrow--prev" onclick="prevSlide()" aria-label="Previous slide">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18L9 12L15 6"/></svg>
+  </button>
+  <button class="hero__arrow hero__arrow--next" onclick="nextSlide()" aria-label="Next slide">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 6L15 12L9 18"/></svg>
+  </button>
+
+  <div class="hero__dots">
+    <button class="hero__dot active" onclick="goToSlide(0)" aria-label="Slide 1"></button>
+    <button class="hero__dot"        onclick="goToSlide(1)" aria-label="Slide 2"></button>
+    <button class="hero__dot"        onclick="goToSlide(2)" aria-label="Slide 3"></button>
+  </div>
+
+  <div class="hero__counter">
+    <span class="hero__counter-current">01</span> / <span>03</span>
+  </div>
+
+  <div class="hero__scroll-cue">
+    <svg width="18" height="26" viewBox="0 0 18 26" fill="none" stroke="currentColor" stroke-width="1.2">
+      <rect x="1" y="1" width="16" height="24" rx="8"/>
+      <circle cx="9" cy="8" r="2.5" fill="currentColor" stroke="none">
+        <animate attributeName="cy" values="8;16;8" dur="2s" repeatCount="indefinite"/>
+      </circle>
+    </svg>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     [3] MARQUEE — LIGHT CREAM trust strip
+════════════════════════════════════════════════════ -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">GIA Certified Diamonds</span>
+    <span class="marquee-item">18k Hallmarked Gold</span>
+    <span class="marquee-item">Ethically Sourced</span>
+    <span class="marquee-item">Ships to 200+ Countries</span>
+    <span class="marquee-item">Lifetime Warranty</span>
+    <span class="marquee-item">10,000+ Happy Customers</span>
+    <span class="marquee-item">Handcrafted in India</span>
+    <span class="marquee-item">BIS Hallmarked</span>
+    <!-- Duplicate for seamless loop -->
+    <span class="marquee-item">GIA Certified Diamonds</span>
+    <span class="marquee-item">18k Hallmarked Gold</span>
+    <span class="marquee-item">Ethically Sourced</span>
+    <span class="marquee-item">Ships to 200+ Countries</span>
+    <span class="marquee-item">Lifetime Warranty</span>
+    <span class="marquee-item">10,000+ Happy Customers</span>
+    <span class="marquee-item">Handcrafted in India</span>
+    <span class="marquee-item">BIS Hallmarked</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     [4] VALUES — LIGHT CREAM
+     4 trust pillars
+════════════════════════════════════════════════════ -->
+<section class="values">
+  <div class="container">
+    <div class="values__header" data-fade>
+      <span class="section-label section-label--light">Our Promise</span>
+      <h2 class="values__headline">Crafted with conscience.<br>Worn with pride.</h2>
+      <p class="values__subtext">Every Aurum piece is a commitment — to quality, to the earth, and to you.</p>
+    </div>
+    <div class="values__grid">
+      <div class="values__item" data-fade data-delay="0">
+        <span class="values__icon">◇</span>
+        <h3 class="values__title">GIA Certified Diamonds</h3>
+        <p class="values__text">Every diamond is independently certified for cut, colour, clarity, and carat by the Gemological Institute of America.</p>
+      </div>
+      <div class="values__item" data-fade data-delay="0.1">
+        <span class="values__icon">◈</span>
+        <h3 class="values__title">Masterfully Handcrafted</h3>
+        <p class="values__text">Over 200 hours of skilled artisan work goes into each signature piece. No shortcuts, no compromises.</p>
+      </div>
+      <div class="values__item" data-fade data-delay="0.2">
+        <span class="values__icon">◉</span>
+        <h3 class="values__title">BIS Hallmarked Gold</h3>
+        <p class="values__text">All our gold pieces carry BIS hallmark certification — guaranteeing the purity of every gram you wear.</p>
+      </div>
+      <div class="values__item" data-fade data-delay="0.3">
+        <span class="values__icon">◎</span>
+        <h3 class="values__title">Lifetime Warranty</h3>
+        <p class="values__text">Your Aurum piece is guaranteed for life. Free cleaning, free resizing, and free repair — always.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     [5] STORY PANEL 1 — DARK CINEMATIC (The Craft)
+     Using local /images/ assets
+════════════════════════════════════════════════════ -->
+<section class="story--dark" data-parallax="0.2">
+  <div class="story__bg" style="background-image: url('images/story-diamond-setting-hands.jpeg');"></div>
+  <div class="story__overlay"></div>
+  <div class="container--wide" style="position:relative;z-index:2;width:100%;">
+    <div class="story__content story__content--left" data-fade>
+      <span class="section-label section-label--dark">The Craft</span>
+      <h2 class="story--dark" style="font:300 italic clamp(40px,5vw,68px)/1.05 var(--font-display);color:var(--text-white);margin-bottom:24px;">Every detail<br>is deliberate.</h2>
+      <p style="font:300 16px/1.9 var(--font-body);color:rgba(250,248,244,0.78);max-width:440px;margin-bottom:36px;">Our master jewellers hand-set each stone using centuries-old techniques, fusing tradition with contemporary Indian design.</p>
+      <a href="blog.html" class="btn-primary-dark">Our Story →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     [6] PRODUCTS — LIGHT IVORY (Live Shopify)
+════════════════════════════════════════════════════ -->
+<section id="products" class="products">
+  <div class="container">
+    <div class="products__header" data-fade>
+      <span class="section-label section-label--light">Our Collection</span>
+      <h2 class="products__headline">Discover Aurum</h2>
+      <p class="products__subtext">Each piece carries the weight of its artistry — diamonds, sapphires, and emeralds chosen for their exceptional character.</p>
+    </div>
+  </div>
+
+  <div class="container--wide">
+    <div class="products__grid">
+      <shopify-list-context type="product" query="products" first="6">
+        <template>
+          <div class="product-card">
+            <div style="display:none;" class="js-product-handle"><shopify-data query="product.handle"></shopify-data></div>
+            <div class="product-card__media">
+              <shopify-media
+                query="product.selectedOrFirstAvailableVariant.image"
+                layout="fullWidth"
+                aspect-ratio="0.8"
+              ></shopify-media>
+              <div class="product-card__overlay">
+                <button
+                  class="product-card__quick-btn"
+                  onclick="const h = this.closest('.product-card').querySelector('.js-product-handle').textContent.trim(); window.location.href = `product.html?handle=${h}`;"
+                >
+                  View Details ✦
+                </button>
+              </div>
+            </div>
+            <div class="product-card__info">
+              <p class="product-card__cat">Fine Jewellery</p>
+              <h3 class="product-card__title">
+                <shopify-data query="product.title"></shopify-data>
+              </h3>
+              <div class="product-card__price-row">
+                <span class="product-card__price">
+                  <shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money>
+                </span>
+              </div>
+            </div>
+          </div>
+        </template>
+      </shopify-list-context>
+    </div>
+  </div>
+
+  <div style="text-align:center; margin-top:56px;">
+    <a href="collections.html" class="btn-ghost-light">View All Collections</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     [7] STORY PANEL 2 — BLUSH (Feminine · Bridal)
+     Using local /images/ assets
+════════════════════════════════════════════════════ -->
+<section class="story--blush">
+  <div class="container">
+    <div class="story__grid">
+      <div class="story__image-wrapper" data-fade>
+        <img src="images/story-finished-jewellery-reveal.jpeg" alt="Fine jewellery artistry" loading="lazy">
+      </div>
+      <div data-fade data-delay="0.15" style="display:flex;flex-direction:column;justify-content:center;">
+        <span class="story__deco-line"></span>
+        <span class="section-label section-label--rose">The Artistry</span>
+        <h2 style="font:300 italic clamp(36px,4vw,56px)/1.1 var(--font-display);color:var(--text-dark);margin-bottom:24px;">Worn close.<br>Remembered always.</h2>
+        <p style="font:300 16px/1.9 var(--font-body);color:var(--text-medium);max-width:440px;margin-bottom:32px;">Inspired by the Indian woman who wears jewellery not just to be seen — but to feel. Our bridal collection is designed for the moments that become memories.</p>
+        <a href="collections.html" class="btn-primary-light" style="align-self:flex-start;">Explore Bridal →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     [8] TESTIMONIALS — LIGHT PARCHMENT
+════════════════════════════════════════════════════ -->
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials__header" data-fade>
+      <span class="section-label section-label--light">Customer Love</span>
+      <h2 class="testimonials__headline">Worn. Loved. Treasured.</h2>
+    </div>
+    <div class="testimonials__grid">
+      <div class="testimonial-card" data-fade data-delay="0">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__quote">"The diamond ring was even more stunning in person. The craftsmanship is unbelievable — I get compliments every single day."</p>
+        <p class="testimonial-card__author">Priya Sharma</p>
+        <p class="testimonial-card__product">Diamond Eternelle Ring · Mumbai</p>
+      </div>
+      <div class="testimonial-card" data-fade data-delay="0.1">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__quote">"Finally a jewellery brand that combines traditional Indian craftsmanship with a modern aesthetic. My sapphire necklace is my most treasured piece."</p>
+        <p class="testimonial-card__author">Ananya Krishnan</p>
+        <p class="testimonial-card__product">Sapphire Lumière Necklace · Bangalore</p>
+      </div>
+      <div class="testimonial-card" data-fade data-delay="0.2">
+        <div class="testimonial-card__stars">★★★★★</div>
+        <p class="testimonial-card__quote">"Gifted the emerald earrings to my wife for our anniversary. She cried. Worth every rupee. The packaging alone felt like unwrapping a dream."</p>
+        <p class="testimonial-card__author">Vikram Mehta</p>
+        <p class="testimonial-card__product">Emerald Séduction Earrings · Delhi</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     [9] STORY PANEL 3 — DARK EMERALD
+     Using local /images/ for texture
+════════════════════════════════════════════════════ -->
+<section class="story--emerald">
+  <div class="container" style="position:relative;z-index:2;">
+    <div style="text-align:center;max-width:700px;margin:0 auto;" data-fade>
+      <span class="section-label section-label--dark" style="justify-content:center;display:flex;">The Stone</span>
+      <h2 style="font:300 italic clamp(40px,5vw,68px)/1.05 var(--font-display);color:var(--text-white);margin-bottom:24px;">Light, captured<br>in carbon.</h2>
+      <p style="font:300 16px/1.9 var(--font-body);color:rgba(250,248,244,0.72);max-width:500px;margin:0 auto 36px;">Our diamonds are selected for their exceptional cut, colour, and clarity. Each stone is chosen by our master gemologists — not by algorithm, but by eye.</p>
+      <a href="collections.html" class="btn-primary-dark">Explore Diamonds</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     [10] BLOG TEASER — WARM OFF-WHITE
+     Using local /images/ assets for blog cards
+════════════════════════════════════════════════════ -->
+<section class="blog-teaser">
+  <div class="container">
+    <div class="blog-teaser__header" data-fade>
+      <h2 class="blog-teaser__headline">The Aurum Journal</h2>
+      <a href="blog.html" class="btn-ghost-light" style="font-size:11px;padding:12px 28px;">All Articles</a>
+    </div>
+    <div class="blog-teaser__grid">
+      <a href="article.html?handle=art-of-gem-selection" class="blog-card" data-fade data-delay="0">
+        <div class="blog-card__image">
+          <img src="images/story-rough-gemstones-pouch.jpeg" alt="Gem selection process" loading="lazy">
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__cat">Jewellery Guide</span>
+          <h3 class="blog-card__title">The Art of Gem Selection</h3>
+          <p class="blog-card__excerpt">How our master gemologists choose only the finest stones for every Aurum collection.</p>
+          <span class="blog-card__link">Read Article →</span>
+        </div>
+      </a>
+      <a href="article.html?handle=ethical-sourcing" class="blog-card" data-fade data-delay="0.1">
+        <div class="blog-card__image">
+          <img src="images/story-rough-diamond-mining.jpeg" alt="Ethical gemstone sourcing" loading="lazy">
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__cat">Sustainability</span>
+          <h3 class="blog-card__title">Sourcing with Conscience</h3>
+          <p class="blog-card__excerpt">Our commitment to ethical, conflict-free diamonds and responsible gold mining practices.</p>
+          <span class="blog-card__link">Read Article →</span>
+        </div>
+      </a>
+      <a href="article.html?handle=caring-for-jewellery" class="blog-card" data-fade data-delay="0.2">
+        <div class="blog-card__image">
+          <img src="images/story-gemstone-setting-process.jpeg" alt="Fine jewellery care" loading="lazy">
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__cat">Care Guide</span>
+          <h3 class="blog-card__title">How to Care for Fine Jewellery</h3>
+          <p class="blog-card__excerpt">Simple rituals to keep your Aurum pieces as radiant as the day you first wore them.</p>
+          <span class="blog-card__link">Read Article →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     [11] NEWSLETTER — WARM CHAMPAGNE
+════════════════════════════════════════════════════ -->
+<section class="newsletter">
+  <div class="container" style="position:relative;z-index:2;">
+    <div data-fade>
+      <span class="section-label section-label--light" style="display:flex;justify-content:center;">Stay in the Loop</span>
+      <h2 class="newsletter__headline">New collections. Early access.<br>Stories worth reading.</h2>
+      <p class="newsletter__subtext">Join 12,000+ Aurum subscribers. Unsubscribe anytime.</p>
+      <form class="newsletter__form" id="newsletter-form">
+        <input type="email" class="newsletter__input" id="newsletter-email" placeholder="your@email.com" required>
+        <button type="submit" class="newsletter__btn">Subscribe</button>
+      </form>
+      <p class="newsletter__disclaimer">We respect your privacy. No spam — ever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- [MODAL REMOVED: NAVIGATING TO PRODUCT.HTML DIRECTLY] -->
+
+<!-- ══════════════════════════════════════════════════
+     SHOPIFY CART
+════════════════════════════════════════════════════ -->
+<shopify-cart id="main-cart">
+  <div slot="empty" style="text-align:center;padding:48px 24px;font:300 italic 22px/1.4 var(--font-display);color:rgba(250,248,244,0.4);">
+    Your collection awaits.
+  </div>
+  <div slot="checkout-button">Proceed to Checkout →</div>
+</shopify-cart>
+
+</shopify-store>
+
+<!-- ══════════════════════════════════════════════════
+     [12] FOOTER — JET BLACK
+════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer__top container--wide">
+    <div>
+      <a href="index.html" class="footer__logo">Aurum</a>
+      <p class="footer__tagline">Fine jewellery crafted for those who believe that beauty should outlast the moment.</p>
+      <div class="footer__social">
+        <a href="#" class="footer__social-link" aria-label="Instagram">Ig</a>
+        <a href="#" class="footer__social-link" aria-label="Pinterest">Pt</a>
+        <a href="#" class="footer__social-link" aria-label="WhatsApp">Wa</a>
+      </div>
+    </div>
+    <div class="footer__col">
+      <h5>Collections</h5>
+      <a href="collections.html">Diamonds</a>
+      <a href="collections.html">Sapphires</a>
+      <a href="collections.html">Emeralds</a>
+      <a href="collections.html">Bridal</a>
+      <a href="collections.html">Everyday Gold</a>
+    </div>
+    <div class="footer__col">
+      <h5>Company</h5>
+      <a href="blog.html">Our Journal</a>
+      <a href="#">Our Story</a>
+      <a href="#">Custom Orders</a>
+      <a href="#">Careers</a>
+    </div>
+    <div class="footer__col">
+      <h5>Support</h5>
+      <a href="#">Track Order</a>
+      <a href="#">Shipping & Returns</a>
+      <a href="#">Lifetime Warranty</a>
+      <a href="#">Contact Us</a>
+      <h5 style="margin-top:28px;">Pay Safely</h5>
+      <div class="footer__payment">
+        <span class="footer__pay-badge">VISA</span>
+        <span class="footer__pay-badge">MC</span>
+        <span class="footer__pay-badge">UPI</span>
+        <span class="footer__pay-badge">EMI</span>
+        <span class="footer__pay-badge">COD</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__wordmark">Aurum</div>
+
+  <div class="footer__bottom container--wide">
+    <span class="footer__legal">© 2025 Aurum Fine Jewellery Pvt. Ltd. All rights reserved.</span>
+    <span class="footer__legal">BIS Hallmarked · GIA Certified · Made in India</span>
+  </div>
+</footer>
+
+<!-- Floating Chat -->
+<button class="chat-float" onclick="alert('Chat coming soon!')" id="chat-btn">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+  </svg>
+  Chat with us
+</button>
+
+</body>
+</html>

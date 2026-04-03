@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="article-title">Journal — Aurum Fine Jewellery</title>
+  <meta name="description" id="article-meta" content="Stories of craft, gemstones, and culture from the Aurum atelier.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <style>
+    /* Article nav — static dark bar */
+    .article-nav {
+      background: var(--dark-void);
+      padding: 20px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(201,151,58,0.1);
+    }
+    .article-nav__logo {
+      font: 300 italic 28px/1 var(--font-display);
+      color: var(--text-white); text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .article-nav__logo .logo-accent { color: var(--gold-mid); font-style: normal; }
+    .article-nav__links { display: flex; gap: 36px; }
+    .article-nav__link {
+      font: 500 11px/1 var(--font-body); letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-mist);
+      text-decoration: none; transition: color 0.3s;
+    }
+    .article-nav__link:hover { color: var(--text-white); }
+    .article-nav__back {
+      font: 500 11px/1 var(--font-body); letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold-mid);
+      text-decoration: none; display: flex; align-items: center; gap: 8px;
+      transition: color 0.3s;
+    }
+    .article-nav__back:hover { color: var(--gold-bright); }
+
+    /* Article body */
+    .article-page {
+      background: var(--light-ivory);
+      min-height: 100vh;
+    }
+
+    /* Article content wrapper */
+    .article-content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    /* Article header */
+    .article-header { text-align: center; margin-bottom: 48px; }
+    .article-cat {
+      font: 600 11px/1 var(--font-body);
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--text-gold-label); margin-bottom: 20px; display: block;
+    }
+    .article-title {
+      font: 300 italic clamp(40px,5vw,72px)/1.05 var(--font-display);
+      color: var(--text-dark); letter-spacing: -0.02em; margin-bottom: 20px;
+    }
+    .article-meta {
+      font: 300 13px/1 var(--font-body);
+      color: var(--text-soft); letter-spacing: 0.05em;
+    }
+
+    /* Hero image */
+    .article-hero-img {
+      width: 100%; aspect-ratio: 16/9;
+      object-fit: cover; border-radius: 2px;
+      margin-bottom: 64px; display: block;
+    }
+
+    /* Body text */
+    .article-body {
+      font: 300 18px/1.9 var(--font-body);
+      color: var(--text-medium);
+    }
+    .article-body p { margin-bottom: 28px; }
+    .article-body h2 {
+      font: 300 italic 32px/1.2 var(--font-display);
+      color: var(--text-dark); margin: 52px 0 20px;
+    }
+    .article-body h3 {
+      font: 400 20px/1.3 var(--font-body);
+      color: var(--text-dark); margin: 36px 0 16px; font-weight: 500;
+    }
+    .article-body blockquote {
+      border-left: 3px solid var(--gold-mid);
+      padding-left: 24px;
+      font: 300 italic 22px/1.6 var(--font-display);
+      color: var(--text-gold-label); margin: 48px 0;
+    }
+
+    /* Gold divider */
+    .article-sep {
+      height: 1px; margin: 48px 0;
+      background: linear-gradient(90deg, var(--gold-mid), var(--gold-bright), transparent);
+    }
+
+    /* Related articles */
+    .article-related {
+      background: var(--light-cream); padding: 80px 0;
+      border-top: 1px solid rgba(139,101,9,0.1);
+    }
+    .article-related__title {
+      font: 300 italic clamp(32px,4vw,48px)/1.1 var(--font-display);
+      color: var(--text-dark); margin-bottom: 40px; text-align: center;
+    }
+    .related-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; max-width: 1100px; margin: 0 auto;
+    }
+    .related-card {
+      display: flex; flex-direction: column;
+      text-decoration: none; color: inherit;
+      border: 1px solid rgba(139,101,9,0.10);
+      background: #FFFFFF; border-radius: 4px; overflow: hidden;
+      transition: all 0.35s var(--ease-out);
+    }
+    .related-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(139,101,9,0.1);
+    }
+    .related-card__img { aspect-ratio: 16/10; overflow: hidden; }
+    .related-card__img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .related-card:hover .related-card__img img { transform: scale(1.05); }
+    .related-card__body { padding: 20px; }
+    .related-card__cat { font: 600 10px/1 var(--font-body); letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-gold-label); margin-bottom: 8px; }
+    .related-card__title { font: 400 italic 18px/1.3 var(--font-display); color: var(--text-dark); }
+
+    @media (max-width: 768px) {
+      .article-nav { padding: 16px 24px; }
+      .article-nav__links { display: none; }
+      .related-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+
+<!-- ARTICLE NAV — static dark bar -->
+<nav class="article-nav">
+  <a href="index.html" class="article-nav__logo">Aur<span class="logo-accent">u</span>m</a>
+  <div class="article-nav__links">
+    <a href="index.html"       class="article-nav__link">Home</a>
+    <a href="collections.html" class="article-nav__link">Collections</a>
+    <a href="blog.html"        class="article-nav__link">Journal</a>
+  </div>
+  <a href="blog.html" class="article-nav__back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Journal
+  </a>
+</nav>
+
+<!-- ARTICLE PAGE -->
+<main class="article-page">
+  <div class="article-content" id="article-container">
+    <!-- Rendered by JS from articles data -->
+    <div style="text-align:center;padding:80px 24px;font:300 italic 24px/1.4 var(--font-display);color:var(--text-soft);">
+      Loading article...
+    </div>
+  </div>
+</main>
+
+<!-- RELATED ARTICLES -->
+<section class="article-related" id="related-section" style="display:none;">
+  <div class="container">
+    <h2 class="article-related__title">Continue Reading</h2>
+    <div class="related-grid" id="related-grid"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer__top container--wide">
+    <div>
+      <a href="index.html" class="footer__logo">Aurum</a>
+      <p class="footer__tagline">Fine jewellery crafted for those who believe that beauty should outlast the moment.</p>
+    </div>
+    <div class="footer__col">
+      <h5>Collections</h5>
+      <a href="collections.html">Shop All</a>
+      <a href="collections.html">Diamonds</a>
+      <a href="collections.html">Bridal</a>
+    </div>
+    <div class="footer__col">
+      <h5>Journal</h5>
+      <a href="blog.html">All Articles</a>
+      <a href="article.html?handle=art-of-gem-selection">Gem Guide</a>
+      <a href="article.html?handle=bridal-guide">Bridal Guide</a>
+    </div>
+    <div class="footer__col">
+      <h5>Support</h5>
+      <a href="#">Contact</a>
+      <a href="#">Returns</a>
+      <a href="#">Warranty</a>
+    </div>
+  </div>
+  <div class="footer__wordmark">Aurum</div>
+  <div class="footer__bottom container--wide">
+    <span class="footer__legal">© 2025 Aurum Fine Jewellery Pvt. Ltd. All rights reserved.</span>
+    <span class="footer__legal">Made in India with Love</span>
+  </div>
+</footer>
+
+<button class="chat-float" onclick="alert('Chat coming soon!')">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  Chat
+</button>
+
+<script>
+// Article data object
+const articles = {
+  'art-of-gem-selection': {
+    category: 'Jewellery Guide',
+    title: 'The Art of Gem Selection',
+    date: 'March 15, 2025',
+    image: 'images/story-rough-gemstones-pouch.jpeg',
+    imageAlt: 'Rough gemstones in a pouch',
+    content: `
+      <p>Every Aurum jewel begins with a stone. Not just any stone — one that passes our seven-point inspection, guided not by algorithms, but by the trained eye and practiced hand of our master gemologists.</p>
+
+      <h2>The First Touch</h2>
+      <p>When a parcel of rough gemstones arrives at the Aurum atelier, it is first assessed in natural daylight. Daylight reveals what artificial light cannot — the true depth of colour, the presence of subtle inclusions, and the internal fire that distinguishes an exceptional stone from a merely acceptable one.</p>
+
+      <blockquote>"A gemstone whispers what it is. You have to learn to listen."<br>— Ramesh Nair, Senior Gemologist, Aurum Atelier</blockquote>
+
+      <h2>Colour: The First Language</h2>
+      <p>For coloured gemstones, colour is everything. We assess three components: hue (the primary colour), tone (lightness to darkness), and saturation (the intensity). A Kashmir sapphire earns its prestige through its velvety, slightly violet-blue — a colour so specific it has no substitute.</p>
+
+      <p>For diamonds, we seek stones above G on the colour scale, ensuring they capture and reflect light without the yellowish tinge that diminishes brilliance.</p>
+
+      <h2>Clarity: The Story Within</h2>
+      <p>Inclusions are a gemstone's fingerprint — unique to each stone. Under 10x magnification, our gemologists map every characteristic. While some inclusions are invisible to the naked eye and do not diminish beauty, others can compromise structural integrity or radiance. We accept only what passes both tests.</p>
+
+      <h2>Cut: The Artisan's Contribution</h2>
+      <p>The cut of a stone determines how it will dance with light. Our cutters in Jaipur — some of the finest in the world — work with each rough stone for weeks, planning the cut that maximises its potential.</p>
+
+      <p>For diamonds, we exclusively use stones cut to Excellent or Ideal grade, ensuring optimal brilliance and fire.</p>
+
+      <h2>The Ethical Dimension</h2>
+      <p>Before any stone enters our supply chain, we verify its origin through our ethical sourcing framework. Every diamond carries a Kimberley Process certificate. Every coloured gemstone is traced to its mine. This is non-negotiable — as fundamental to Aurum as the quality of the stone itself.</p>
+    `
+  },
+  'ethical-sourcing': {
+    category: 'Sustainability',
+    title: 'Sourcing with Conscience',
+    date: 'February 28, 2025',
+    image: 'images/story-rough-diamond-mining.jpeg',
+    imageAlt: 'Ethical diamond mining operations',
+    content: `
+      <p>The diamond in your ring has a history longer than you and everything you own combined. It formed billions of years ago, deep in the earth's mantle, under pressures and temperatures unimaginable to us. It deserves to arrive in your hands through a chain that honours that journey.</p>
+
+      <h2>The Kimberley Process and Beyond</h2>
+      <p>Every diamond Aurum uses carries certification from the Kimberley Process Certification Scheme — the international standard that prevents conflict diamonds from entering the market. But we go further. Our suppliers are also members of the Responsible Jewellery Council, held to independent audits covering environmental impact, labour practices, and human rights.</p>
+
+      <blockquote>"Compliance is the floor, not the ceiling. We hold ourselves to a standard that conflict-free certification alone cannot measure."<br>— Kavita Iyer, Head of Sourcing, Aurum</blockquote>
+
+      <h2>Coloured Gemstones: A Different Challenge</h2>
+      <p>Tracing coloured gemstones — sapphires, emeralds, rubies — is more complex. Unlike diamonds, there is no single international certification body. We partner directly with mines and cooperatives in Sri Lanka, Colombia, and East Africa that meet our social and environmental benchmarks.</p>
+
+      <h2>Gold: The Refinery Matters</h2>
+      <p>All gold used in Aurum pieces is sourced from refineries accredited to the London Bullion Market Association (LBMA) Responsible Gold standard. We purchase only from suppliers who can demonstrate full chain-of-custody documentation.</p>
+
+      <h2>Our Ongoing Commitment</h2>
+      <p>We publish an annual transparency report detailing the origins of our metals and gemstones. We believe our customers deserve to know where their jewellery comes from — and we are proud to tell them.</p>
+    `
+  },
+  'caring-for-jewellery': {
+    category: 'Care Guide',
+    title: 'How to Care for Fine Jewellery',
+    date: 'February 10, 2025',
+    image: 'images/story-gemstone-setting-process.jpeg',
+    imageAlt: 'Fine jewellery being set by a craftsman',
+    content: `
+      <p>An Aurum piece is built to last lifetimes. But even the finest jewellery requires a little care to remain as radiant as the day it arrived at your door. These rituals are simple — and deeply pleasurable.</p>
+
+      <h2>Day-to-Day Care</h2>
+      <p>Jewellery should be the last thing you put on and the first thing you take off. This prevents exposure to perfume, hairspray, and lotions, which can dull surfaces over time. If your piece gets wet — from the sea, rain, or a pool — rinse it gently with fresh water and pat dry with a soft cloth.</p>
+
+      <h2>Cleaning at Home</h2>
+      <p>For most gold and diamond jewellery, a solution of mild soap and warm water is ideal. Use a soft-bristled brush (a baby toothbrush works perfectly) to clean gently around stone settings. Rinse thoroughly, then dry completely before storage.</p>
+
+      <blockquote>"The most important thing is to clean your jewellery regularly — and to do it gently. Diamonds are hard, but their settings are not."<br>— Suresh Pillai, Master Jeweller, Aurum</blockquote>
+
+      <h2>What to Avoid</h2>
+      <p>Avoid ultrasonic cleaners for pieces with emeralds or pearls — these stones are sensitive to vibration and heat. Avoid chlorine entirely: it can degrade gold alloys and affect certain gemstones permanently.</p>
+
+      <h2>Storage</h2>
+      <p>Store each piece separately in a soft pouch or the Aurum box it arrived in. This prevents scratching. Keep jewellery away from direct sunlight and extreme temperatures.</p>
+
+      <h2>Your Lifetime Warranty</h2>
+      <p>Aurum offers free cleaning, resizing, and repair on every piece — for life. Bring your jewellery to us once a year and we will restore it to its original brilliance. No questions, no charges.</p>
+    `
+  },
+  'diamond-language': {
+    category: 'Education',
+    title: 'The Language of Diamonds',
+    date: 'January 25, 2025',
+    image: 'images/story-diamond-faceting-machine.jpeg',
+    imageAlt: 'Diamond being faceted',
+    content: `
+      <p>Diamonds have their own language. Learning it changes how you see them — not as expensive accessories, but as remarkable objects with stories written in carbon, formed over billions of years.</p>
+
+      <h2>The 4Cs: The Standard Framework</h2>
+      <p>Cut, colour, clarity, and carat weight were codified by the GIA in the 1950s and remain the universal language of diamonds. Each dimension matters, but they interact — a well-cut stone with a slight colour tint can outshine a poorly cut "colourless" diamond.</p>
+
+      <h2>Cut: The Most Critical C</h2>
+      <p>Cut is the only C that is fully within human control. A well-cut diamond returns light to the eye with maximum intensity. GIA grades cuts from Excellent to Poor — at Aurum, we use only Excellent and Ideal cut stones.</p>
+
+      <h2>Colour: The Invisible Scale</h2>
+      <p>The GIA colour scale runs from D (colourless) to Z (light yellow). Differences between adjacent grades are invisible to the untrained eye — but they affect price significantly. Our jewellers will show you stones side by side so you can make your own assessment.</p>
+
+      <h2>The 5th C: Consciousness</h2>
+      <p>We believe the most important consideration is one the standard framework doesn't address: where did this diamond come from, and at what cost? Every Aurum diamond comes with full ethical provenance — this is the C that matters most to us.</p>
+    `
+  },
+  'bridal-guide': {
+    category: 'Bridal',
+    title: 'The Indian Bridal Jewellery Guide',
+    date: 'January 10, 2025',
+    image: 'images/story-finished-jewellery-reveal.jpeg',
+    imageAlt: 'Bridal jewellery reveal',
+    content: `
+      <p>A wedding in India is not one event — it is a constellation of ceremonies, each with its own rhythm, its own colours, its own requirements of the jewellery you wear. Choosing jewellery for your wedding is one of the most joyful, most significant decisions you will make.</p>
+
+      <h2>The Mehndi Ceremony</h2>
+      <p>Mehndi calls for joy and colour. Lightweight gold pieces — delicate chains, jhumkas, bangles — complement the hand art without competing with it. Rose gold harmonises beautifully with the deep orange-red of fresh mehndi.</p>
+
+      <h2>The Engagement</h2>
+      <p>The engagement ring anchors everything. It will be photographed thousands of times and worn every day for decades. Choose a stone that moves you — not the largest you can afford, but the one that catches your breath.</p>
+
+      <blockquote>"The most beautiful engagement rings are the ones chosen with the future in mind — pieces that will still feel current and personal in thirty years."</blockquote>
+
+      <h2>The Wedding Day</h2>
+      <p>For the main ceremony, statement pieces are expected — but the most memorable bridal jewellery always feels personal, not merely impressive. A neckpiece with your grandmother's design element. A pair of chandbali earrings in a style your mother loves. Something new, something old.</p>
+
+      <h2>The Reception</h2>
+      <p>The reception is your moment to pivot from tradition to personality. Sleeker, more contemporary pieces — a diamond tennis bracelet, a significant solitaire, a modern cuff — often find their perfect occasion here.</p>
+    `
+  },
+  'rose-vs-yellow': {
+    category: 'Style Guide',
+    title: 'Rose Gold vs Yellow Gold',
+    date: 'December 18, 2024',
+    image: 'images/story-gold-smelting.jpeg',
+    imageAlt: 'Gold smelting at the atelier',
+    content: `
+      <p>The choice between rose gold and yellow gold is one our clients ask about most. There is no universally correct answer — but there is a right answer for you. Here is how to find it.</p>
+
+      <h2>What Makes Them Different</h2>
+      <p>Both are 18-karat alloys — 75% pure gold mixed with other metals. Yellow gold uses silver and zinc. Rose gold replaces some of that with copper, which creates its warm pinkish hue. The more copper, the deeper the rose tone.</p>
+
+      <h2>Skin Tone as a Starting Point</h2>
+      <p>Yellow gold has traditionally been recommended for deeper skin tones, and rose gold for fair to medium tones. This is a useful heuristic — but it is not a rule. The most important test is to see both on your own skin, in natural light, and trust your immediate reaction.</p>
+
+      <blockquote>"When a client is unsure, I put both on their wrist and ask them which one they stop looking at first. That's the answer."<br>— Meera Krishnaswamy, Senior Jewellery Advisor, Aurum</blockquote>
+
+      <h2>The Durability Question</h2>
+      <p>Both rose and yellow gold in their 18-karat form are equally durable for everyday wear. Rose gold benefits slightly from the hardness of copper and may show fewer scratches over time — but this is a marginal difference.</p>
+
+      <h2>Trend vs. Timelessness</h2>
+      <p>Rose gold had a watershed moment in the 2010s. Yellow gold has never truly gone out of fashion. If timelessness is your priority, yellow gold has the longer track record — but the most timeless piece is always the one that feels most like you.</p>
+    `
+  }
+};
+
+// Render article from URL param
+function renderArticle() {
+  const handle = new URLSearchParams(window.location.search).get('handle');
+  const container = document.getElementById('article-container');
+  const article = articles[handle];
+
+  if (!article) {
+    container.innerHTML = `
+      <div style="text-align:center;padding:80px 24px;">
+        <h1 style="font:300 italic 48px/1 var(--font-display);color:var(--text-dark);margin-bottom:24px;">Article Not Found</h1>
+        <p style="font:300 16px/1.8 var(--font-body);color:var(--text-soft);margin-bottom:32px;">We couldn't find that article. Browse all stories in our journal.</p>
+        <a href="blog.html" class="btn-primary-light">Back to Journal</a>
+      </div>`;
+    return;
+  }
+
+  // Update page metadata
+  document.title = `${article.title} — Aurum Fine Jewellery`;
+  document.getElementById('article-meta')?.setAttribute('content', article.title);
+
+  // Render article HTML
+  container.innerHTML = `
+    <header class="article-header">
+      <span class="article-cat">${article.category}</span>
+      <h1 class="article-title">${article.title}</h1>
+      <p class="article-meta">${article.date} · The Aurum Journal</p>
+    </header>
+
+    <img
+      src="${article.image}"
+      alt="${article.imageAlt}"
+      class="article-hero-img"
+    >
+
+    <div class="article-body" data-fade>
+      ${article.content}
+    </div>
+
+    <div class="article-sep"></div>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+      <div>
+        <p style="font:600 10px/1 var(--font-body);letter-spacing:0.2em;text-transform:uppercase;color:var(--text-gold-label);margin-bottom:8px;">Share this story</p>
+        <div style="display:flex;gap:12px;">
+          <a href="#" style="font:300 13px/1 var(--font-body);color:var(--text-soft);text-decoration:none;border-bottom:1px solid rgba(139,101,9,0.3);padding-bottom:2px;">Instagram</a>
+          <a href="#" style="font:300 13px/1 var(--font-body);color:var(--text-soft);text-decoration:none;border-bottom:1px solid rgba(139,101,9,0.3);padding-bottom:2px;">WhatsApp</a>
+          <a href="#" style="font:300 13px/1 var(--font-body);color:var(--text-soft);text-decoration:none;border-bottom:1px solid rgba(139,101,9,0.3);padding-bottom:2px;">Copy Link</a>
+        </div>
+      </div>
+      <a href="blog.html" class="btn-ghost-light" style="font-size:11px;padding:12px 24px;">← All Articles</a>
+    </div>
+  `;
+
+  // Show related
+  const relatedSection = document.getElementById('related-section');
+  const relatedGrid = document.getElementById('related-grid');
+  const otherHandles = Object.keys(articles).filter(h => h !== handle).slice(0, 3);
+
+  if (otherHandles.length) {
+    relatedGrid.innerHTML = otherHandles.map(h => {
+      const a = articles[h];
+      return `
+        <a href="article.html?handle=${h}" class="related-card">
+          <div class="related-card__img">
+            <img src="${a.image}" alt="${a.imageAlt}" loading="lazy">
+          </div>
+          <div class="related-card__body">
+            <span class="related-card__cat">${a.category}</span>
+            <h3 class="related-card__title">${a.title}</h3>
+          </div>
+        </a>`;
+    }).join('');
+    relatedSection.style.display = 'block';
+  }
+
+  // Trigger fade animations
+  document.querySelectorAll('[data-fade]').forEach(el => {
+    const delay = el.dataset.delay ? parseFloat(el.dataset.delay) : 0;
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(28px)';
+    setTimeout(() => {
+      el.style.transition = `opacity 0.9s cubic-bezier(0.16,1,0.3,1) ${delay}s, transform 0.9s cubic-bezier(0.16,1,0.3,1) ${delay}s`;
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    }, 100);
+  });
+}
+
+// Run on DOM ready
+document.addEventListener('DOMContentLoaded', renderArticle);
+</script>
+
+</body>
+</html>

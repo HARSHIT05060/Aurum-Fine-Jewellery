@@ -1,0 +1,66 @@
+/* ═══════════════════════════════════════════════
+   AURUM — NEWSLETTER CSS
+   WARM CHAMPAGNE CTA section
+═══════════════════════════════════════════════ */
+
+.newsletter {
+  background: var(--light-champagne);
+  padding: 80px 0;
+  position: relative; overflow: hidden; text-align: center;
+}
+.newsletter::before {
+  content: 'AURUM';
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  font: 300 italic 200px/1 var(--font-display);
+  letter-spacing: -0.04em;
+  color: rgba(139,101,9,0.05);
+  white-space: nowrap; pointer-events: none;
+}
+.newsletter__headline {
+  font: 300 italic clamp(32px,4vw,52px)/1.1 var(--font-display);
+  color: var(--text-dark); margin-bottom: 12px;
+  position: relative; z-index: 1;
+}
+.newsletter__subtext {
+  font: 300 15px/1.7 var(--font-body);
+  color: var(--text-medium);
+  max-width: 440px; margin: 0 auto 36px;
+  position: relative; z-index: 1;
+}
+.newsletter__form {
+  display: flex; gap: 0;
+  max-width: 480px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.newsletter__input {
+  flex: 1; padding: 16px 20px;
+  background: #FFFFFF;
+  border: 1.5px solid rgba(139,101,9,0.25);
+  border-right: none;
+  border-radius: 1px 0 0 1px;
+  font: 300 14px/1 var(--font-body); color: var(--text-dark);
+  outline: none; transition: border-color 0.3s;
+}
+.newsletter__input:focus { border-color: var(--gold-mid); }
+.newsletter__input::placeholder { color: var(--text-soft); }
+.newsletter__btn {
+  padding: 16px 28px;
+  background: var(--dark-void); color: var(--text-white); border: none;
+  font: 600 11px/1 var(--font-body);
+  letter-spacing: 0.16em; text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 0 1px 1px 0;
+  transition: background 0.3s;
+}
+.newsletter__btn:hover { background: var(--gold-deep); }
+.newsletter__disclaimer {
+  font: 300 11px/1 var(--font-body);
+  color: var(--text-soft); margin-top: 16px;
+  position: relative; z-index: 1;
+}
+
+@media (max-width: 480px) {
+  .newsletter__form { flex-direction: column; }
+  .newsletter__input { border-right: 1.5px solid rgba(139,101,9,0.25); border-bottom: none; border-radius: 1px 1px 0 0; }
+  .newsletter__btn { border-radius: 0 0 1px 1px; }
+}

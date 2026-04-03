@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Journal — Aurum Fine Jewellery</title>
+  <meta name="description" content="Stories of craft, gemstones, sustainability, and style. The Aurum Journal — where jewellery meets culture.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/blog-teaser.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <style>
+    /* Dark editorial journal header */
+    .journal-header {
+      background: var(--dark-void);
+      padding: 160px 0 80px;
+      position: relative; overflow: hidden;
+    }
+    .journal-header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Ccircle cx='40' cy='40' r='38' fill='none' stroke='rgba(201,151,58,0.04)' stroke-width='1'/%3E%3C/svg%3E") repeat;
+      background-size: 80px 80px;
+    }
+    .journal-header__eyebrow {
+      display: block; font: 600 11px/1 var(--font-body);
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold-mid); margin-bottom: 24px;
+    }
+    .journal-header__title {
+      font: 300 italic clamp(60px,9vw,112px)/0.92 var(--font-display);
+      letter-spacing: -0.03em; color: var(--text-white);
+      margin-bottom: 24px;
+    }
+    .journal-header__sub {
+      font: 300 16px/1.8 var(--font-body);
+      color: var(--text-mist); max-width: 480px;
+    }
+    .journal-header__rule {
+      height: 1px; margin-top: 40px;
+      background: linear-gradient(90deg, var(--gold-mid), var(--gold-bright), transparent);
+      max-width: 300px;
+    }
+
+    /* Blog grid section */
+    .journal-grid {
+      background: var(--light-cream);
+      padding: 80px 0 120px;
+    }
+
+    /* Featured article — large first card */
+    .blog-card--featured {
+      grid-column: span 3;
+      display: grid; grid-template-columns: 1fr 1fr;
+      overflow: hidden; border-radius: 4px;
+    }
+    .blog-card--featured .blog-card__image {
+      aspect-ratio: unset; min-height: 380px;
+    }
+    .blog-card--featured .blog-card__body {
+      padding: 48px 40px;
+      display: flex; flex-direction: column;
+      justify-content: center; gap: 16px;
+    }
+    .blog-card--featured .blog-card__title {
+      font: 400 italic clamp(28px,3vw,40px)/1.2 var(--font-display);
+    }
+    @media (max-width: 768px) {
+      .blog-card--featured { grid-column: span 1; grid-template-columns: 1fr; }
+      .blog-card--featured .blog-card__body { padding: 28px 24px; }
+    }
+  </style>
+
+  <!-- Lenis -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+
+<!-- NAV — always dark on journal page -->
+<nav class="nav always-scrolled" id="main-nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      Aur<span class="logo-accent">u</span>m
+    </a>
+    <div class="nav__links">
+      <a href="index.html"       class="nav__link">Home</a>
+      <a href="collections.html" class="nav__link">Collections</a>
+      <a href="blog.html"        class="nav__link active">Journal</a>
+    </div>
+    <div class="nav__actions">
+      <button class="nav__icon-btn" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+      <a href="collections.html" class="nav__cta">Shop Now</a>
+      <button class="nav__hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- DARK EDITORIAL HEADER -->
+<header class="journal-header">
+  <div class="container" style="position:relative;z-index:2;">
+    <div data-fade>
+      <span class="journal-header__eyebrow">Arts · Craft · Culture · Style</span>
+      <h1 class="journal-header__title">The<br>Journal</h1>
+      <p class="journal-header__sub">Stories from the atelier — on gemstones, artisans, sustainability, and the women who wear Aurum.</p>
+      <div class="journal-header__rule"></div>
+    </div>
+  </div>
+</header>
+
+<!-- ARTICLES GRID — WARM CREAM -->
+<section class="journal-grid">
+  <div class="container">
+    <div class="blog-teaser__grid" style="grid-template-columns: repeat(3, 1fr);">
+
+      <!-- Featured Article -->
+      <a href="article.html?handle=art-of-gem-selection" class="blog-card blog-card--featured" data-fade>
+        <div class="blog-card__image" style="aspect-ratio:unset;min-height:380px;">
+          <img src="images/story-rough-gemstones-pouch.jpeg" alt="The art of gem selection" loading="lazy">
+        </div>
+        <div class="blog-card__body" style="padding:48px 40px;justify-content:center;">
+          <span class="blog-card__cat">Jewellery Guide · Featured</span>
+          <h2 class="blog-card__title" style="font:400 italic clamp(28px,3vw,40px)/1.2 var(--font-display);color:var(--text-dark);">The Art of Gem Selection</h2>
+          <p class="blog-card__excerpt">How our master gemologists choose only the finest stones for every Aurum collection — from Colombian emeralds to Kashmir sapphires.</p>
+          <span class="blog-card__link">Read Article →</span>
+        </div>
+      </a>
+
+      <!-- Article 2 -->
+      <a href="article.html?handle=ethical-sourcing" class="blog-card" data-fade data-delay="0.05">
+        <div class="blog-card__image">
+          <img src="images/story-rough-diamond-mining.jpeg" alt="Ethical diamond sourcing" loading="lazy">
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__cat">Sustainability</span>
+          <h3 class="blog-card__title">Sourcing with Conscience</h3>
+          <p class="blog-card__excerpt">Our commitment to ethical, conflict-free diamonds and responsible gold mining practices.</p>
+          <span class="blog-card__link">Read Article →</span>
+        </div>
+      </a>
+
+      <!-- Article 3 -->
+      <a href="article.html?handle=caring-for-jewellery" class="blog-card" data-fade data-delay="0.1">
+        <div class="blog-card__image">
+          <img src="images/story-gemstone-setting-process.jpeg" alt="Fine jewellery care guide" loading="lazy">
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__cat">Care Guide</span>
+          <h3 class="blog-card__title">How to Care for Fine Jewellery</h3>
+          <p class="blog-card__excerpt">Simple rituals to keep your Aurum pieces as radiant as the day you first wore them.</p>
+          <span class="blog-card__link">Read Article →</span>
+        </div>
+      </a>
+
+      <!-- Article 4 -->
+      <a href="article.html?handle=diamond-language" class="blog-card" data-fade data-delay="0">
+        <div class="blog-card__image">
+          <img src="images/story-diamond-faceting-machine.jpeg" alt="Diamond language and cut" loading="lazy">
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__cat">Education</span>
+          <h3 class="blog-card__title">The Language of Diamonds</h3>
+          <p class="blog-card__excerpt">Understanding the 4Cs — and why the 5th C (consciousness) matters most to us.</p>
+          <span class="blog-card__link">Read Article →</span>
+        </div>
+      </a>
+
+      <!-- Article 5 -->
+      <a href="article.html?handle=bridal-guide" class="blog-card" data-fade data-delay="0.1">
+        <div class="blog-card__image">
+          <img src="images/story-finished-jewellery-reveal.jpeg" alt="Bridal jewellery guide India" loading="lazy">
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__cat">Bridal</span>
+          <h3 class="blog-card__title">The Indian Bridal Jewellery Guide</h3>
+          <p class="blog-card__excerpt">From mehndi to reception — how to select pieces that complement every ceremony.</p>
+          <span class="blog-card__link">Read Article →</span>
+        </div>
+      </a>
+
+      <!-- Article 6 -->
+      <a href="article.html?handle=rose-vs-yellow" class="blog-card" data-fade data-delay="0.2">
+        <div class="blog-card__image">
+          <img src="images/story-gold-smelting.jpeg" alt="Rose gold vs yellow gold" loading="lazy">
+        </div>
+        <div class="blog-card__body">
+          <span class="blog-card__cat">Style Guide</span>
+          <h3 class="blog-card__title">Rose Gold vs Yellow Gold</h3>
+          <p class="blog-card__excerpt">Which metal suits your skin tone, your style, and your story? Our jewellers weigh in.</p>
+          <span class="blog-card__link">Read Article →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER — SIMPLIFIED -->
+<footer class="footer">
+  <div class="footer__top container--wide">
+    <div>
+      <a href="index.html" class="footer__logo">Aurum</a>
+      <p class="footer__tagline">Fine jewellery crafted for those who believe that beauty should outlast the moment.</p>
+    </div>
+    <div class="footer__col">
+      <h5>Collections</h5>
+      <a href="collections.html">Diamonds</a>
+      <a href="collections.html">Sapphires</a>
+      <a href="collections.html">Emeralds</a>
+    </div>
+    <div class="footer__col">
+      <h5>Journal</h5>
+      <a href="article.html?handle=art-of-gem-selection">Gem Selection</a>
+      <a href="article.html?handle=ethical-sourcing">Sustainability</a>
+      <a href="article.html?handle=bridal-guide">Bridal Guide</a>
+    </div>
+    <div class="footer__col">
+      <h5>Support</h5>
+      <a href="#">Track Order</a>
+      <a href="#">Returns</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <div class="footer__wordmark">Aurum</div>
+  <div class="footer__bottom container--wide">
+    <span class="footer__legal">© 2025 Aurum Fine Jewellery Pvt. Ltd. All rights reserved.</span>
+    <span class="footer__legal">BIS Hallmarked · GIA Certified · Made in India</span>
+  </div>
+</footer>
+
+<button class="chat-float" onclick="alert('Chat coming soon!')">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  Chat with us
+</button>
+
+</body>
+</html>

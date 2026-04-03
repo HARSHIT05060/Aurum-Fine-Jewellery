@@ -1,0 +1,259 @@
+/* ═══════════════════════════════════════════════
+   AURUM — PRODUCTS CSS
+   LIGHT IVORY product grid + DARK modal
+═══════════════════════════════════════════════ */
+
+/* ── Section ── */
+.products {
+  background: var(--light-ivory);
+  padding: 100px 0 120px;
+  position: relative;
+}
+
+.products__header {
+  text-align: center; max-width: 600px; margin: 0 auto 72px;
+}
+.products__headline {
+  font: 300 italic clamp(40px,5vw,64px)/1.05 var(--font-display);
+  color: var(--text-dark); margin-bottom: 16px;
+}
+.products__subtext {
+  font: 300 16px/1.8 var(--font-body);
+  color: var(--text-medium);
+}
+
+/* ── Grid — 3 columns ── */
+.products__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1380px; margin: 0 auto;
+}
+
+/* shopify-list-context renders cards as its children, so we use
+   display:contents to make those cards direct grid participants */
+.products__grid shopify-list-context {
+  display: contents;
+}
+
+/* Product cards inside the grid must be visible — they are rendered
+   dynamically after the IntersectionObserver runs, so data-fade
+   would leave them permanently invisible */
+.products__grid .product-card {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ── Product Card ── */
+.product-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(139,101,9,0.10);
+  border-radius: 4px; overflow: hidden;
+  transition: all 0.55s var(--ease-out);
+  cursor: pointer; position: relative;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 72px rgba(139,101,9,0.12);
+  border-color: rgba(201,151,58,0.35);
+}
+
+/* Image area */
+.product-card__media {
+  position: relative; overflow: hidden;
+  aspect-ratio: 4/5; background: var(--light-cream);
+}
+.product-card__media shopify-media,
+.product-card__media img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.75s var(--ease-out);
+}
+.product-card:hover .product-card__media shopify-media,
+.product-card:hover .product-card__media img {
+  transform: scale(1.07);
+}
+
+/* Badge */
+.product-card__badge {
+  position: absolute; top: 14px; left: 14px;
+  padding: 5px 12px;
+  background: var(--light-champagne);
+  color: var(--text-gold-label);
+  font: 600 10px/1 var(--font-body);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  border-radius: 40px; z-index: 5;
+}
+
+/* Hover overlay */
+.product-card__overlay {
+  position: absolute; inset: 0; z-index: 4;
+  background: linear-gradient(to top, rgba(13,11,9,0.82) 0%, transparent 50%);
+  opacity: 0; transition: opacity 0.45s ease;
+  display: flex; align-items: flex-end; padding: 24px;
+}
+.product-card:hover .product-card__overlay { opacity: 1; }
+.product-card__quick-btn {
+  font: 600 11px/1 var(--font-body);
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold-pale); background: none; border: none;
+  border-bottom: 1px solid var(--gold-mid);
+  padding-bottom: 4px; cursor: pointer;
+}
+
+/* Info area */
+.product-card__info {
+  padding: 20px 22px 26px;
+}
+.product-card__cat {
+  font: 600 10px/1 var(--font-body);
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-gold-label); margin-bottom: 8px;
+}
+.product-card__title {
+  font: 400 italic 19px/1.3 var(--font-display);
+  color: var(--text-dark); margin-bottom: 10px;
+}
+.product-card__price-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+}
+.product-card__price {
+  font: 500 16px/1 var(--font-mono);
+  color: var(--gold-mid);
+}
+
+/* ── PRODUCT MODAL ── */
+.product-modal {
+  padding: 0; border: none;
+  background: #FFFFFF;
+  border-radius: 8px;
+  max-width: 1040px; width: 94%;
+  box-shadow: 0 30px 90px rgba(13,11,9,0.12), 0 0 0 1px rgba(139,101,9,0.08);
+  overflow: hidden;
+}
+.product-modal::backdrop {
+  background: rgba(26,20,16,0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.product-modal__close {
+  position: absolute; top: 20px; right: 20px; z-index: 10;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--light-cream);
+  border: 1px solid rgba(139,101,9,0.1);
+  border-radius: 50%;
+  color: var(--text-dark); font-size: 16px;
+  cursor: pointer; transition: all 0.3s;
+}
+.product-modal__close:hover {
+  background: var(--dark-void);
+  border-color: var(--dark-void);
+  color: var(--text-white);
+  transform: rotate(90deg);
+}
+.product-modal__grid {
+  display: grid; grid-template-columns: 1.1fr 0.9fr; position: relative;
+}
+
+/* Left: image */
+.product-modal__image { 
+  background: var(--light-cream);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.product-modal__image shopify-media,
+.product-modal__image img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  min-height: 600px;
+}
+
+/* Right: details */
+.product-modal__details {
+  padding: 64px 56px;
+  display: flex; flex-direction: column; gap: 28px;
+  background: #FFFFFF;
+}
+.product-modal__vendor {
+  font: 600 11px/1 var(--font-body);
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--text-gold-label);
+}
+.product-modal__title {
+  font: 300 italic 42px/1.1 var(--font-display);
+  color: var(--text-dark);
+}
+.product-modal__price {
+  font: 500 32px/1 var(--font-mono);
+  color: var(--gold-deep);
+}
+.product-modal__divider {
+  height: 1px; background: rgba(139,101,9,0.08); margin: 4px 0;
+}
+.product-modal__description {
+  font: 300 15px/1.8 var(--font-body);
+  color: var(--text-medium);
+}
+.product-modal__description p { margin-bottom: 16px; }
+.product-modal__actions {
+  display: flex; flex-direction: column; gap: 14px; margin-top: 8px;
+}
+
+/* Variant Selector — light mode */
+shopify-variant-selector::part(form)  { display: flex; flex-direction: column; gap: 20px; }
+shopify-variant-selector::part(label) {
+  font: 600 10px/1 var(--font-body); letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--text-soft); display: block; margin-bottom: 10px;
+}
+shopify-variant-selector::part(radio) {
+  padding: 12px 20px;
+  background: var(--light-ivory);
+  border: 1px solid rgba(139,101,9,0.15);
+  color: var(--text-dark);
+  font: 400 13px/1 var(--font-body); cursor: pointer;
+  transition: all 0.3s;
+  border-radius: 2px;
+}
+shopify-variant-selector::part(radio-selected) {
+  background: var(--dark-void);
+  border-color: var(--dark-void);
+  color: var(--text-white);
+}
+
+/* Cart styling — keeping dark for contrast/premium feel */
+shopify-cart::part(dialog) {
+  background: var(--dark-void);
+  border-left: 1px solid rgba(201,151,58,0.15);
+  color: var(--text-white);
+  box-shadow: -20px 0 60px rgba(0,0,0,0.4);
+}
+shopify-cart::part(header) { border-bottom: 1px solid rgba(250,248,244,0.1); }
+shopify-cart::part(primary-button) {
+  background: var(--gold-gradient);
+  color: var(--dark-void); border: none;
+  font: 600 12px/1 var(--font-body);
+  letter-spacing: 0.16em; text-transform: uppercase;
+  border-radius: 2px; padding: 18px;
+}
+shopify-cart::part(secondary-button) {
+  background: transparent;
+  color: rgba(250,248,244,0.6); fill: rgba(250,248,244,0.6);
+  border: 1px solid rgba(250,248,244,0.15);
+}
+shopify-cart::part(line-heading) { color: var(--text-white); font-family: var(--font-display); font-style: italic; font-size: 18px; }
+shopify-cart::part(line-price)   { color: var(--gold-bright); font-family: var(--font-mono); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .products__grid { grid-template-columns: repeat(2, 1fr); }
+  .product-modal__details { padding: 48px 40px; }
+}
+@media (max-width: 850px) {
+  .product-modal { width: 96%; max-height: 90vh; overflow-y: auto; }
+  .product-modal__grid { grid-template-columns: 1fr; }
+  .product-modal__image shopify-media,
+  .product-modal__image img { min-height: 380px; }
+  .product-modal__details { padding: 40px 28px; }
+}
+@media (max-width: 640px) {
+  .products__grid { grid-template-columns: 1fr; }
+}

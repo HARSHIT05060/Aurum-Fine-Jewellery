@@ -1,0 +1,57 @@
+/* ═══════════════════════════════════════════════
+   AURUM — TESTIMONIALS CSS
+   LIGHT PARCHMENT — warm & trustworthy
+═══════════════════════════════════════════════ */
+
+.testimonials {
+  background: var(--light-parchment);
+  padding: 100px 0;
+}
+.testimonials__header {
+  text-align: center; margin-bottom: 64px;
+}
+.testimonials__headline {
+  font: 300 italic clamp(36px,4vw,56px)/1.1 var(--font-display);
+  color: var(--text-dark); margin-bottom: 12px;
+}
+.testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1200px; margin: 0 auto;
+}
+.testimonial-card {
+  background: #FFFFFF;
+  padding: 36px 32px;
+  border: 1px solid rgba(139,101,9,0.10);
+  border-radius: 4px;
+  transition: all 0.4s var(--ease-out);
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(139,101,9,0.10);
+}
+.testimonial-card__stars {
+  color: var(--gold-mid); font-size: 14px;
+  margin-bottom: 20px; letter-spacing: 4px;
+}
+.testimonial-card__quote {
+  font: 300 italic 16px/1.9 var(--font-display);
+  color: var(--text-medium); margin-bottom: 24px;
+}
+.testimonial-card__author {
+  font: 600 12px/1 var(--font-body);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text-dark);
+}
+.testimonial-card__product {
+  font: 300 12px/1 var(--font-body);
+  color: var(--text-gold-label); margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .testimonials__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 1024px) {
+  .testimonials__grid { grid-template-columns: repeat(2, 1fr); }
+}

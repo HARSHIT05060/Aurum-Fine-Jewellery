@@ -1,0 +1,31 @@
+/* ═══════════════════════════════════════════════
+   AURUM — MARQUEE CSS
+   Scrolling trust strip — LIGHT CREAM background
+═══════════════════════════════════════════════ */
+
+.marquee-strip {
+  background: var(--light-cream);
+  padding: 20px 0;
+  border-top: 1px solid rgba(201,151,58,0.15);
+  border-bottom: 1px solid rgba(201,151,58,0.15);
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scrollMarquee 28s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+.marquee-item {
+  display: flex; align-items: center; gap: 16px;
+  padding: 0 48px; white-space: nowrap;
+  font: 500 12px/1 var(--font-body);
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--text-soft);
+}
+.marquee-item::after {
+  content: '✦';
+  color: var(--gold-mid); font-size: 10px;
+}

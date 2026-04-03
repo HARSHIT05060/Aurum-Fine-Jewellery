@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collections — Aurum Fine Jewellery</title>
+  <meta name="description" content="Browse the complete Aurum collection — diamonds, sapphires, emeralds, and bridal jewellery. Ethically sourced, masterfully handcrafted.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/newsletter.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <!-- Page-specific styles -->
+  <style>
+    /* Collections hero — dark 60vh */
+    .collections-hero {
+      position: relative; height: 60vh; min-height: 420px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; background: var(--dark-void);
+    }
+    .collections-hero__bg {
+      position: absolute; inset: 0;
+      background-image: url('images/hero-floating-gemstones.jpeg');
+      background-size: cover; background-position: center;
+      opacity: 0.55;
+    }
+    .collections-hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(13,11,9,0.3) 0%, rgba(13,11,9,0.85) 100%);
+    }
+    .collections-hero__content {
+      position: relative; z-index: 2; text-align: center;
+    }
+    .collections-hero__label {
+      display: block; font: 600 11px/1 var(--font-body);
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--gold-mid); margin-bottom: 20px;
+    }
+    .collections-hero__title {
+      font: 300 italic clamp(48px,7vw,90px)/0.95 var(--font-display);
+      color: var(--text-white); letter-spacing: -0.02em; margin-bottom: 18px;
+    }
+    .collections-hero__sub {
+      font: 300 16px/1.7 var(--font-body);
+      color: rgba(250,248,244,0.65); max-width: 400px; margin: 0 auto;
+    }
+
+    /* Filter strip — LIGHT CREAM */
+    .filter-strip {
+      background: var(--light-cream);
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(201,151,58,0.15);
+      display: flex; justify-content: center;
+      gap: 8px; overflow-x: auto;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .filter-pill {
+      background: transparent;
+      border: 1px solid rgba(139,101,9,0.2);
+      color: var(--text-medium);
+      font: 500 11px/1 var(--font-body);
+      letter-spacing: 0.14em; text-transform: uppercase;
+      cursor: pointer; padding: 10px 22px; border-radius: 40px;
+      transition: all 0.3s var(--ease-out); white-space: nowrap;
+    }
+    .filter-pill:hover {
+      border-color: var(--gold-mid); color: var(--text-gold-label);
+      background: rgba(201,151,58,0.06);
+    }
+    .filter-pill.active {
+      background: var(--dark-void); color: var(--text-white);
+      border-color: var(--dark-void);
+    }
+
+    /* Products section override for collections page */
+    .collections-products {
+      background: var(--light-ivory); padding: 80px 0 120px;
+    }
+  </style>
+
+  <!-- Lenis -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <!-- Shopify Web Components -->
+  <script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
+  <!-- App JS -->
+  <script type="module" src="js/main.js"></script>
+  <script>
+    // Filter pill interaction
+    document.addEventListener('DOMContentLoaded', () => {
+      const pills = document.querySelectorAll('.filter-pill');
+      pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          pills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+
+<shopify-store
+  store-domain="9u06ub-b4.myshopify.com"
+  public-access-token="66b528c90f3742203a41ef49b5b354d6"
+  country="IN"
+  language="EN"
+>
+
+<!-- NAVIGATION — always dark on collections page -->
+<nav class="nav always-scrolled" id="main-nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      Aur<span class="logo-accent">u</span>m
+    </a>
+    <div class="nav__links">
+      <a href="index.html"       class="nav__link">Home</a>
+      <a href="collections.html" class="nav__link active">Collections</a>
+      <a href="blog.html"        class="nav__link">Journal</a>
+    </div>
+    <div class="nav__actions">
+      <button class="nav__icon-btn" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+      <button class="nav__icon-btn" onclick="document.getElementById('main-cart').showModal()" aria-label="Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      </button>
+      <a href="collections.html" class="nav__cta">Shop Now</a>
+      <button class="nav__hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- DARK HERO -->
+<header class="collections-hero">
+  <div class="collections-hero__bg"></div>
+  <div class="collections-hero__overlay"></div>
+  <div class="collections-hero__content" data-fade>
+    <span class="collections-hero__label">Discover · Shop · Own</span>
+    <h1 class="collections-hero__title">Our Collections</h1>
+    <p class="collections-hero__sub">Every piece tells a story of craft, rarity, and timeless Indian elegance.</p>
+  </div>
+</header>
+
+<!-- FILTER STRIP — LIGHT CREAM -->
+<div class="filter-strip">
+  <button class="filter-pill active" id="filter-all">All</button>
+  <button class="filter-pill" id="filter-rings">Rings</button>
+  <button class="filter-pill" id="filter-necklaces">Necklaces</button>
+  <button class="filter-pill" id="filter-earrings">Earrings</button>
+  <button class="filter-pill" id="filter-bracelets">Bracelets</button>
+  <button class="filter-pill" id="filter-bridal">Bridal</button>
+</div>
+
+<!-- PRODUCTS GRID — LIGHT IVORY -->
+<section class="collections-products">
+  <div class="container--wide">
+    <div class="products__grid">
+      <shopify-list-context type="product" query="products" first="12">
+        <template>
+          <div class="product-card">
+            <div style="display:none;" class="js-product-handle"><shopify-data query="product.handle"></shopify-data></div>
+            <div class="product-card__media">
+              <shopify-media
+                query="product.selectedOrFirstAvailableVariant.image"
+                layout="fullWidth"
+                aspect-ratio="0.8"
+              ></shopify-media>
+              <div class="product-card__overlay">
+                <button
+                  class="product-card__quick-btn"
+                  onclick="const h = this.closest('.product-card').querySelector('.js-product-handle').textContent.trim(); window.location.href = `product.html?handle=${h}`;"
+                >
+                  View Details ✦
+                </button>
+              </div>
+            </div>
+            <div class="product-card__info">
+              <p class="product-card__cat">Fine Jewellery</p>
+              <h3 class="product-card__title">
+                <shopify-data query="product.title"></shopify-data>
+              </h3>
+              <div class="product-card__price-row">
+                <span class="product-card__price">
+                  <shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money>
+                </span>
+              </div>
+            </div>
+          </div>
+        </template>
+      </shopify-list-context>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER — CHAMPAGNE -->
+<section class="newsletter">
+  <div class="container" style="position:relative;z-index:2;">
+    <div data-fade>
+      <span class="section-label section-label--light" style="display:flex;justify-content:center;">Exclusive Access</span>
+      <h2 class="newsletter__headline">New arrivals, first to you.</h2>
+      <p class="newsletter__subtext">Subscribe for early access to new collections and exclusive offers.</p>
+      <form class="newsletter__form">
+        <input type="email" class="newsletter__input" placeholder="your@email.com" required>
+        <button type="submit" class="newsletter__btn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- [MODAL REMOVED: NAVIGATING TO PRODUCT.HTML DIRECTLY] -->
+
+<!-- SHOPIFY CART -->
+<shopify-cart id="main-cart">
+  <div slot="empty" style="text-align:center;padding:48px 24px;font:300 italic 22px/1.4 var(--font-display);color:rgba(250,248,244,0.4);">
+    Your collection awaits.
+  </div>
+  <div slot="checkout-button">Proceed to Checkout →</div>
+</shopify-cart>
+
+</shopify-store>
+
+<!-- FOOTER — SIMPLIFIED -->
+<footer class="footer">
+  <div class="footer__top container--wide">
+    <div>
+      <a href="index.html" class="footer__logo">Aurum</a>
+      <p class="footer__tagline">Fine jewellery crafted for those who believe that beauty should outlast the moment.</p>
+      <div class="footer__social">
+        <a href="#" class="footer__social-link" aria-label="Instagram">Ig</a>
+        <a href="#" class="footer__social-link" aria-label="Pinterest">Pt</a>
+        <a href="#" class="footer__social-link" aria-label="WhatsApp">Wa</a>
+      </div>
+    </div>
+    <div class="footer__col">
+      <h5>Collections</h5>
+      <a href="collections.html">Diamonds</a>
+      <a href="collections.html">Sapphires</a>
+      <a href="collections.html">Emeralds</a>
+      <a href="collections.html">Bridal</a>
+    </div>
+    <div class="footer__col">
+      <h5>Company</h5>
+      <a href="blog.html">Our Journal</a>
+      <a href="#">Our Story</a>
+      <a href="#">Custom Orders</a>
+    </div>
+    <div class="footer__col">
+      <h5>Support</h5>
+      <a href="#">Track Order</a>
+      <a href="#">Returns</a>
+      <a href="#">Warranty</a>
+      <h5 style="margin-top:28px;">Pay Safely</h5>
+      <div class="footer__payment">
+        <span class="footer__pay-badge">VISA</span>
+        <span class="footer__pay-badge">MC</span>
+        <span class="footer__pay-badge">UPI</span>
+        <span class="footer__pay-badge">EMI</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer__wordmark">Aurum</div>
+  <div class="footer__bottom container--wide">
+    <span class="footer__legal">© 2025 Aurum Fine Jewellery Pvt. Ltd. All rights reserved.</span>
+    <span class="footer__legal">BIS Hallmarked · GIA Certified · Made in India</span>
+  </div>
+</footer>
+
+<button class="chat-float" onclick="alert('Chat coming soon!')">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+  Chat with us
+</button>
+
+</body>
+</html>

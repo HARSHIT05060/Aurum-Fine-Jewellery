@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product — Aurum Fine Jewellery</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/products.css">
+  <link rel="stylesheet" href="css/newsletter.css">
+  <link rel="stylesheet" href="css/footer.css">
+
+  <style>
+    .product-page {
+      background: var(--light-ivory);
+      padding: 140px 0 100px;
+      min-height: 100vh;
+    }
+    
+    .product-page-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .product-gallery {
+      background: var(--light-cream);
+      border-radius: 4px; border: 1px solid rgba(139,101,9,0.08);
+      position: sticky;
+      top: 100px;
+    }
+    
+    .product-gallery shopify-media,
+    .product-gallery img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+      border-radius: 4px;
+    }
+
+    .product-details {
+      padding-top: 20px;
+    }
+
+    .product-vendor {
+      font: 600 12px/1 var(--font-body);
+      letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--text-gold-label); margin-bottom: 24px; display: block;
+    }
+
+    .product-title {
+      font: 300 italic clamp(42px,5vw,64px)/1.05 var(--font-display);
+      color: var(--text-dark); letter-spacing: -0.02em; margin-bottom: 24px;
+    }
+
+    .product-price {
+      font: 500 36px/1 var(--font-mono);
+      color: var(--gold-deep); margin-bottom: 32px; display: block;
+    }
+
+    .product-divider {
+      height: 1px; background: rgba(139,101,9,0.12); margin: 32px 0;
+    }
+
+    .product-description {
+      font: 300 16px/1.8 var(--font-body);
+      color: var(--text-medium);
+      margin-bottom: 32px;
+    }
+    .product-description p { margin-bottom: 16px; }
+
+    .product-actions {
+      display: flex; flex-direction: column; gap: 16px; margin-top: 24px;
+    }
+
+    .product-features {
+      display: flex; flex-wrap: wrap; gap: 20px; margin-top: 48px;
+    }
+    .feature-item {
+      display: flex; align-items: center; gap: 8px;
+      font: 300 12px/1.5 var(--font-body); color: var(--text-soft);
+      padding: 12px 16px; border: 1px solid rgba(139,101,9,0.1);
+      border-radius: 2px;
+    }
+
+    @media (max-width: 1024px) {
+      .product-page-layout { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 768px) {
+      .product-page-layout { grid-template-columns: 1fr; }
+      .product-gallery { position: relative; top: 0; }
+    }
+  </style>
+
+  <!-- Lenis -->
+  <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+  <!-- Shopify Web Components -->
+  <script type="module" src="https://cdn.shopify.com/storefront/web-components.js"></script>
+  <!-- App JS -->
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+
+<shopify-store
+  store-domain="9u06ub-b4.myshopify.com"
+  public-access-token="66b528c90f3742203a41ef49b5b354d6"
+  country="IN"
+  language="EN"
+>
+
+<!-- NAVIGATION — dark glass on scroll -> static dark for this page's scroll -->
+<nav class="nav always-scrolled" id="main-nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      Aur<span class="logo-accent">u</span>m
+    </a>
+    <div class="nav__links">
+      <a href="index.html"       class="nav__link">Home</a>
+      <a href="collections.html" class="nav__link">Collections</a>
+      <a href="blog.html"        class="nav__link">Journal</a>
+    </div>
+    <div class="nav__actions">
+      <button class="nav__icon-btn" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+      <button class="nav__icon-btn" onclick="document.getElementById('main-cart').showModal()" aria-label="Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      </button>
+      <a href="collections.html" class="nav__cta">Shop Now</a>
+      <button class="nav__hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+    <!-- PRODUCT PAGE -->
+    <main class="product-page">
+      <div class="container--wide">
+        <shopify-context id="product-page-context" type="product" handle="zivelle-solitaire-diamond-ring">
+          <template>
+            <div class="product-page-layout">
+              <!-- Left: Gallery -->
+              <div class="product-gallery">
+                <shopify-media
+                  query="product.selectedOrFirstAvailableVariant.image"
+                  layout="fullWidth"
+                  aspect-ratio="0.8"
+                ></shopify-media>
+              </div>
+              
+              <!-- Right: Details -->
+              <div class="product-details">
+                <div class="product-header">
+                  <span class="product-vendor">Aurum ✦ Fine Jewellery</span>
+                  <h1 class="product-title">
+                    <shopify-data query="product.title"></shopify-data>
+                  </h1>
+                  <span class="product-price">
+                    <shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money>
+                  </span>
+                </div>
+
+                <div class="product-divider"></div>
+
+                <shopify-variant-selector></shopify-variant-selector>
+
+                <div class="product-actions">
+                  <button
+                    class="btn-gold"
+                    style="width:100%;justify-content:center;padding:20px;font-size:13px;"
+                    onclick="document.getElementById('main-cart').addLine(event).showModal();"
+                    shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale"
+                  >Add to Cart ✦</button>
+                  <button
+                    class="btn-primary-dark"
+                    style="width:100%;justify-content:center;padding:18px;"
+                    onclick="document.querySelector('shopify-store').buyNow(event)"
+                    shopify-attr--disabled="!product.selectedOrFirstAvailableVariant.availableForSale"
+                  >Buy It Now</button>
+                </div>
+
+                <div class="product-features">
+                  <div class="feature-item">
+                    <span style="color:var(--gold-mid);">✦</span> GIA Certified
+                  </div>
+                  <div class="feature-item">
+                    <span style="color:var(--gold-mid);">◇</span> Ships within 48 hours
+                  </div>
+                  <div class="feature-item">
+                    <span style="color:var(--gold-mid);">◎</span> Lifetime Warranty
+                  </div>
+                </div>
+
+                <div class="product-divider"></div>
+
+                <!-- Description -->
+                <div class="product-description-container">
+                  <h3 style="font:600 11px var(--font-body); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:20px; color:var(--text-soft);">Description</h3>
+                  <div class="product-description">
+                    <shopify-data query="product.descriptionHtml"></shopify-data>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </template>
+        </shopify-context>
+      </div>
+    </main>
+
+    <!-- SECTION: RELATED PRODUCTS -->
+    <section class="related-products" style="background:var(--light-cream); padding:100px 0; border-top:1px solid rgba(139,101,9,0.08);">
+      <div class="container--wide">
+        <div data-fade>
+          <span class="section-label">You May Also Like</span>
+          <h2 class="section-title section-title--center" style="margin-bottom:60px;">Complete the Story</h2>
+        </div>
+        
+        <div class="products__grid">
+          <shopify-list-context type="product" query="products" first="3">
+            <template>
+              <div class="product-card">
+                <div style="display:none;" class="js-product-handle"><shopify-data query="product.handle"></shopify-data></div>
+                <div class="product-card__media">
+                  <shopify-media
+                    query="product.selectedOrFirstAvailableVariant.image"
+                    layout="fullWidth"
+                    aspect-ratio="0.8"
+                  ></shopify-media>
+                  <div class="product-card__overlay">
+                    <button
+                      class="product-card__quick-btn"
+                      onclick="const h = this.closest('.product-card').querySelector('.js-product-handle').textContent.trim(); window.location.href = `product.html?handle=${h}`;"
+                    >
+                      View Details ✦
+                    </button>
+                  </div>
+                </div>
+                <div class="product-card__info text-center">
+                  <p class="product-card__cat">Fine Jewellery</p>
+                  <h3 class="product-card__title">
+                    <shopify-data query="product.title"></shopify-data>
+                  </h3>
+                  <div class="product-card__price-row" style="justify-content:center;">
+                    <span class="product-card__price">
+                      <shopify-money query="product.selectedOrFirstAvailableVariant.price"></shopify-money>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </shopify-list-context>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHOPIFY CART -->
+    <shopify-cart id="main-cart">
+      <div slot="empty" style="text-align:center;padding:48px 24px;font:300 italic 22px/1.4 var(--font-display);color:rgba(250,248,244,0.4);">
+        Your collection awaits.
+      </div>
+      <div slot="checkout-button">Proceed to Checkout →</div>
+    </shopify-cart>
+
+    </shopify-store>
+
+    <!-- FOOTER -->
+    <footer class="footer" style="margin-top:0;">
+      <div class="footer__top container--wide">
+        <div>
+          <a href="index.html" class="footer__logo">Aurum</a>
+          <p class="footer__tagline">Fine jewellery crafted for those who believe that beauty should outlast the moment.</p>
+        </div>
+        <div class="footer__col">
+          <h5>Collections</h5>
+          <a href="collections.html">Diamonds</a>
+          <a href="collections.html">Sapphires</a>
+          <a href="collections.html">Gifting</a>
+        </div>
+        <div class="footer__col">
+          <h5>Support</h5>
+          <a href="#">Contact Us</a>
+          <a href="#">Shipping & Returns</a>
+          <a href="#">Size Guide</a>
+        </div>
+      </div>
+      <div class="footer__bottom container--wide">
+        <span class="footer__legal">© 2025 Aurum Fine Jewellery Pvt. Ltd. All rights reserved.</span>
+        <span class="footer__legal">BIS Hallmarked · GIA Certified</span>
+      </div>
+    </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Read handle from URL
+    const handle = new URLSearchParams(window.location.search).get('handle');
+    const contextEl = document.getElementById('product-page-context');
+    
+    if (handle && contextEl) {
+      contextEl.setAttribute('handle', handle);
+    } else {
+      // Fallback handle if none provided
+      if (contextEl) {
+        contextEl.setAttribute('handle', 'zivelle-solitaire-diamond-ring'); 
+      }
+    }
+  });
+
+  // Fade observer for the details panel
+  setTimeout(() => {
+    document.querySelectorAll('[data-fade]').forEach(el => {
+      el.style.transition = 'opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1)';
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+    });
+  }, 100);
+</script>
+
+</body>
+</html>
